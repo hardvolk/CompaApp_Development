@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_news"
+            android:title="Noticias" />
+        <item
+            android:id="@+id/nav_studies"
+            android:title="Grupos de Estudio" />
+        <item
+            android:id="@+id/nav_events"
+            android:title="Eventos" />
+        <item
+            android:id="@+id/nav_resources"
+            android:title="Recursos" />
+        <item
+            android:id="@+id/nav_donate"
+            android:title="Donar" />
+        <item
+            android:id="@+id/nav_about"
+            android:title="Sobre Compa" />
+    </group>
+
+</menu>

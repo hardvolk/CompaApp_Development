@@ -1,4 +1,4 @@
-package cne.compaapp;
+﻿package cne.compaapp;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,7 +17,6 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.android.gms.vision.text.Text;
 
 public class MainActivity extends AppCompatActivity
@@ -38,12 +37,10 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
         WebView webViewControl = (WebView) findViewById(R.id.webview);
         webViewControl.getSettings().setJavaScriptEnabled(true);
         webViewControl.setWebViewClient(new WebViewClient());
         webViewControl.loadUrl("http://www.compa.org.mx");
-
     }
 
     @Override

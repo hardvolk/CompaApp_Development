@@ -1,5 +1,6 @@
 package cne.compaapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -12,6 +13,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.gms.vision.text.Text;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -31,6 +38,12 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        WebView webViewControl = (WebView) findViewById(R.id.webview);
+        webViewControl.getSettings().setJavaScriptEnabled(true);
+        webViewControl.setWebViewClient(new WebViewClient());
+        webViewControl.loadUrl("http://www.compa.org.mx");
+
     }
 
     @Override
@@ -73,18 +86,41 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
+        // En esta sección se cargará la pagina de noticias
         if (id == R.id.nav_news) {
-            // Handle the camera action
-        } else if (id == R.id.nav_studies) {
+            WebView webViewControl = (WebView) findViewById(R.id.webview);
+            webViewControl.loadUrl("http://www.compa.org.mx");
 
-        } else if (id == R.id.nav_events) {
+        }
+        // En esta sección se carga el mapa con los grupos de estudio biblico
+        else if (id == R.id.nav_studies) {
+            //Toast.makeText(this, "Esta característica se habilitará proximamente", Toast.LENGTH_SHORT).show();
+            Intent intentMap = new Intent(this, StudyGroupsActivity.class );
+            startActivity(intentMap);
 
-        } else if (id == R.id.nav_donate) {
+        }
+        // En esta sección se cargará la página con los eventos
+        else if (id == R.id.nav_events) {
+            WebView webViewControl = (WebView) findViewById(R.id.webview);
+            webViewControl.loadUrl("http://compa.org.mx/eventos/");
 
-        } else if (id == R.id.nav_resources) {
+        }
+        // En esta sección, cargar la página de donativos
+        else if (id == R.id.nav_donate) {
+            WebView webViewControl = (WebView) findViewById(R.id.webview);
+            webViewControl.loadUrl("http://compa.org.mx/involucrate/");
 
-        } else if (id == R.id.nav_about) {
+        }
+        // En esta sección se cargan los recursos
+        else if (id == R.id.nav_resources) {
+            WebView webViewControl = (WebView) findViewById(R.id.webview);
+            webViewControl.loadUrl("http://wwww.facebook.com");
 
+        }
+        // En esta parte cargar la sección con la información sobre compa
+        else if (id == R.id.nav_about) {
+            WebView webViewControl = (WebView) findViewById(R.id.webview);
+            webViewControl.loadUrl("http://compa.org.mx/about-us/");
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
